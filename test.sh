@@ -4,11 +4,12 @@ npm rm -g yarn >/dev/null 2>&1
 npm install -g yarn@0.23.4 >/dev/null 2>&1
 
 function test() {
+    echo "---------------------------------------------"
     echo "Running: $1 $2"
 
     rm -rf node_modules
     rm -rf yarn.lock
-    rm -rf vendor/npm_cache
+    rm -rf cache
 
     cp .yarnrc-$1 .yarnrc
     cp package-$2.json package.json
@@ -25,8 +26,12 @@ function test() {
     yarn cache clean
     yarn --offline
 
+    ls cache
+
     rm -rf package.json
     rm -rf .yarnrc
+    echo "---------------------------------------------"
+    echo ""
 }
 
 test "with-pruning" "simple"
