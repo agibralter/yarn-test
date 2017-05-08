@@ -25,7 +25,13 @@ function test() {
     echo "offline install"
     yarn cache clean
     yarn --offline
+    ls cache
 
+    echo ""
+    echo "Will yarn add missing packages from cache?"
+    rm -rf cache
+    yarn cache clean
+    yarn
     ls cache
 
     rm -rf package.json
