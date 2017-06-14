@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 npm rm -g yarn >/dev/null 2>&1
-npm install -g yarn@0.23.4 >/dev/null 2>&1
+npm install -g yarn@0.26.1 >/dev/null 2>&1
 
 function test() {
     echo "---------------------------------------------"
